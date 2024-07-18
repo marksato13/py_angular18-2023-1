@@ -1,0 +1,136 @@
+/* Estilos para el elemento header */
+.header {
+  /* Estilos para pantallas grandes */
+  margin-left: 250px;
+  height: 57px;
+  background-color: #151a30;
+  border-bottom: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  transition: all 0.2s ease-in;
+}
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .icon:hover {
+    cursor: pointer;
+    color: gray;
+    
+    
+  }
+  
+  .icon--size {
+    font-size: 1.5rem;
+ color: rgb(255, 255, 255);
+  }
+
+  
+  .icon {
+    display: flex; /* Aplicar flexbox para alinear los iconos */
+    align-items: center; /* Centrar verticalmente los iconos */
+  }
+  
+  .icon i {
+    margin-right: 16px; /* Margen derecho entre los iconos */
+  }
+  
+  .perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .left {
+    position: relative;
+  }
+  .bolita {
+    border: 1px solid black;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    background-color: rgb(30, 191, 89);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  
+  .perfil__photo {
+    overflow: hidden;
+    margin-bottom: 0px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid black;
+    height: 40px;
+    margin-left: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  
+  .perfil__name {
+    margin: 0;
+    color: #dee2e6;
+  }
+  
+  /* Estilos para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .perfil__name {
+      font-size: 14px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+  }
+  
+  
+
+
+
+  /* Estilos para el logotipo en el header */
+.logo {
+  max-width: 200px; /* La imagen no será más ancha que su contenedor */
+  height: 30px; /* Mantiene la proporción de aspecto original de la imagen */
+}
+  
+
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 900px) {
+  .header {
+    /* Ajusta los estilos para pantallas más pequeñas */
+    margin-left: 80px;
+  }
+
+  .logo {
+    display: none; /* Oculta el logotipo en pantallas más pequeñas */
+  }
+}
+  
+  
+
+  
+  .header--large{
+    margin-left: 80px;
+  }
+
+
+
+
+
+
+  .logo {
+    max-width:200px; /* La imagen no será más ancha que su contenedor */
+    height: 30px; /* Mantiene la proporción de aspecto original de la imagen */
+}
+@media (max-width: 900px) {
+  .logo {
+      display: none;
+  }
+}

@@ -1,0 +1,113 @@
+<section class="container p-4" *ngIf="!status;else table">
+  <button class="btn btn-warning mb-2 text-white" routerLink="/home/informes">Regresar</button>
+  <h1 class="text-center">Equipos</h1>
+  <section class="container p-4 d-flex justify-content-evenly flex-wrap" *ngIf="dataEquipo!=null;else noData">
+    <!-- card -->
+    <div class="col-3 m-1" *ngFor="let item of dataEquipo">
+      <div class="shadow-sm card bg-secondary-subtle d-flex flex-column align-items-center" style="height: 100%;">
+        <figure class="figure">
+          <img src="/assets/team.jpeg" class="card-img-top" alt="...">
+        </figure>
+        <div class="card-body w-100 pt-2">
+          <h5 class="card-title text-center h-100 d-flex align-items-center justify-content-center">
+            {{item.nombre_equipo}}</h5>
+          <div>
+            <a class="btn btn-primary text-uppercase d-flex justify-content-between" (click)="informes(item.id)"><span
+                class="d-inline-block" data-bs-toggle="modal" data-bs-target="#view">Informes</span> <i
+                class="fa-regular fa-eye icon-card"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #noData>
+    <h1>No hay equipos registrados</h1>
+  </ng-template>
+</section>
+
+<ng-template #table>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Alumno</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Asistencia</th>
+          <th scope="col">Calificación</th>
+          <th scope="col">Horas A</th>
+          <th scope="col">Nota</th>
+          <th scope="col">Horas E</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of informe; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item.NOMBRE + " "+item.APELLIDO }}</td>
+          <td>{{item.NOMBRE_ROL}}</td>
+          <td>{{item.ESTADO}}</td>
+          <td>{{item.CALIFICACION}}</td>
+          <td>{{item.HORAS_REALIZADAS}}</td>
+          <td>{{item.NOTA}}</td>
+          <td>{{item.ESTADO_ASISTENCIA}}</td>
+          <td class=" mt-0">
+            <button type="button" class="btn btn-success px-2 m-0" data-bs-toggle="modal"
+              data-bs-target="#edit" (click)="editar(item)">EDITAR PROYECTO</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div>
+      <input type="file" class="s" (change)="onFileSelected($event)">
+      <button class="btn btn-danger" onclick="eliminarDiv(this)">
+        <i class="fas fa-trash-alt"></i> Eliminar
+      </button>
+    </div>    
+  </div>
+</ng-template>
+
+
+<!-- Modal -->
+<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Reporte</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="mockData != null">
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <input type="number" class="form-control" id="estado" name="estado" [(ngModel)]="mockData.ESTADO">
+          </div>
+          <div class="mb-3">
+            <label for="Calificacion" class="form-label">Calificacion</label>
+            <input type="text" class="form-control" id="Calificacion" name="Calificacion" [(ngModel)]="mockData.CALIFICACION">
+          </div>
+          <div class="mb-3">
+            <label for="horasRealizadas" class="form-label">Horas Realizadas</label>
+            <input type="number" class="form-control" id="horasRealizadas" name="horasRealizadas" [(ngModel)]="mockData.HORAS_REALIZADAS">
+          </div>
+          <div class="mb-3">
+            <label for="nota" class="form-label">Nota</label>
+            <input type="number" class="form-control" id="nota" name="nota" [(ngModel)]="mockData.NOTA">
+          </div>
+          <div class="mb-3">
+            <label for="estadosRealizados" class="form-label">Estados Realizadas</label>
+            <input type="text" class="form-control" id="estadosRealizados" name="estadosRealizados" [(ngModel)]="mockData.ESTADO_ASISTENCIA"> 
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="editarInforme()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

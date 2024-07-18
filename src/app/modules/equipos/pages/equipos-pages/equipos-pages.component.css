@@ -1,0 +1,81 @@
+  /* Common card style for both sections */
+  .card {
+    border: 8px solid #21055a;
+    margin-bottom: 20px;
+  }
+
+  /* Style for form labels */
+  label {
+    font-weight: bold;
+  }
+
+  /* Style for buttons */
+  .btn {
+    margin-top: 10px;
+  }
+
+  .card{
+    border: none;
+    margin: 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+  figure{
+    margin-bottom: 0;
+    margin-top: 20px;
+    width: 80%;
+    overflow: hidden;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    height: 150px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .xxx {
+    background-color: rgb(243, 243, 243);
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-family: "Your Preferred Font", sans-serif; /* Replace "Your Preferred Font" with the actual font you want to use */
+
+  }
+
+  /* proyectos-pages.component.css */
+
+.card-body {
+  padding: 20px; /* Ajusta el espaciado interno del card body según tus necesidades */
+}
+
+.card-title {
+  font-size: 1.5em; /* Tamaño de fuente del título del card */
+}
+
+.card-text strong {
+  font-weight: bold; /* Hace que el texto en negrita dentro de card-text sea más visible */
+}
+
+.contenido {
+  margin: 70px; /* Puedes ajustar este margen según tus preferencias */
+}
+
+.icon-card{
+  line-height: 24px;
+}

@@ -1,0 +1,78 @@
+<!-- Contenedor principal -->
+<section class="container p-4">
+  <!-- Filtro por Semestre -->
+  <div class="row w-25">
+    <label for="semestre" class="p-0 mb-2 text-uppercase"> Filtrar por Semestre</label>
+    <select class="form-select" aria-label="Default select example" id="semestre" (change)="filterSemester($event)">
+      <option selected disabled>Selecciona Semestre</option>
+      <!-- Opciones para seleccionar el semestre -->
+      <option *ngFor="let item of semestres" value="{{item.id}}">{{item.nombresemeste}}</option>
+    </select>
+    <!-- Botón para abrir el modal de nuevo proyecto -->
+    <button type="button" class="btn btn-primary mt-3 w-25" data-bs-toggle="modal" data-bs-target="#proyecto"><i
+        class="fa-solid fa-plus"></i></button>
+  </div>
+  <!-- Contenedor de los proyectos -->
+  <section class="container p-4 d-flex justify-content-evenly flex-wrap">
+    <!-- card -->
+    <!-- Tarjetas de proyectos -->
+    <div class="row g-4 w-100">
+      <!-- Bucle para generar tarjetas de proyecto -->
+      <div class="col-3" *ngFor="let item of proyectos">
+        <!-- Título del proyecto -->
+        <div class="shadow-sm card bg-secondary-subtle d-flex flex-column align-items-center" style="height: 100%;">
+          <figure class="figure">
+            <img src="{{item.documento}}" class="card-img-top" alt="...">
+          </figure>
+          <div class="card-body w-100 pt-2">
+            <h5 class="card-title text-center h-100 d-flex align-items-center justify-content-center">
+              {{item.nombreproyecto}}</h5>
+            <!-- Botones de acción para cada proyecto -->
+            <div>
+              <a class="btn btn-primary text-uppercase d-flex justify-content-between"><span class="d-inline-block"
+                  (click)="viewProyecto(item.id)" data-bs-toggle="modal" data-bs-target="#view">Ver detalles</span> <i
+                  class="fa-regular fa-eye icon-card"></i></a>
+              <a class="btn btn-success text-uppercase d-flex justify-content-between"><span class="d-inline-block"
+                  (click)="updateProyecto(item.id)" data-bs-toggle="modal" data-bs-target="#proyecto">Editar</span><i
+                  class="fa-solid fa-pen-to-square icon-card"></i></a>
+              <a class="btn btn-danger text-uppercase d-flex justify-content-between"><span class="d-inline-block"
+                  (click)="eliminarProyecto(item.id)">Eliminar</span><i class="fa-solid fa-trash icon-card"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- Modal para nuevo proyecto -->
+<div #modal class="modal fade" id="proyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Proyecto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #close
+          (click)="deleteData()"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Componente que representa el formulario para un nuevo proyecto -->
+        <app-modal-proyecto></app-modal-proyecto>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal para ver detalles del proyecto -->
+<div #modal class="modal fade" id="view" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Proyecto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #close
+          (click)="deleteData()"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Componente que representa la vista detallada de un proyecto -->
+        <app-view-proyecto></app-view-proyecto>
+      </div>
+    </div>
+  </div>
+</div>

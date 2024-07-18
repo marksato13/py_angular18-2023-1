@@ -1,0 +1,23 @@
+ <section class="container-header" [ngClass]="{'show': !sidebarStatusLarge, 'large':sidebarStatusLarge}">
+   <app-menu-header (buttonSidebarAction)="getData($event)"> </app-menu-header>
+ </section>
+
+
+ <section class="container-sidebar"
+   [ngClass]="{'container-sidebar-short': !sidebarStatusLarge, 'container-sidebar-large':sidebarStatusLarge}">
+   <app-sidebar [sidebarStatusLarge]="sidebarStatusLarge"></app-sidebar>
+ </section>
+ <div [ngClass]="!sidebarStatusLarge ? 'menu' : 'menu menu--large'">
+   <router-outlet> </router-outlet>
+ </div>
+
+
+ <!-- <app-menu-header (buttonSidebarAction)="getData($event)"> </app-menu-header>
+
+ <app-sidebar [sidebarStatusLarge]="sidebarStatusLarge"></app-sidebar>
+ 
+ <div [ngClass]="!sidebarStatusLarge ? 'menu' : 'menu menu--large'">
+     <router-outlet> </router-outlet>
+ </div> -->
+
+ 

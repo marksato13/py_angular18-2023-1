@@ -1,0 +1,172 @@
+<section class="container p-4">
+  <div class="row w-100">
+    <div class="col-3">
+      <label for="semestre" class="p-0 mb-2 text-uppercase"> Buscar</label>
+      <input type="text" class="form-control" placeholder="Ingresa Nombre" (keyup)="seacrh($event)">
+    </div>
+    <div class="col-3">
+      <label for="semestre" class="p-0 mb-2 text-uppercase"> Filtrar por Semestre</label>
+      <select class="form-select" aria-label="Default select example" id="semestre" (change)="filterSemester($event)">
+        <option selected disabled>Selecciona Semestre</option>
+        <option *ngFor="let item of semestres" value="{{item.id}}">{{item.nombresemeste}}</option>
+      </select>
+    </div>
+    <div class="col-3">
+      <label for="escuela" class="p-0 mb-2 text-uppercase"> Filtrar por Escuelas</label>
+      <select class="form-select" aria-label="Default select example" id="escuela" (change)="filterEscuela($event)">
+        <option selected disabled>Selecciona Escuela</option>
+        <option *ngFor="let item of escuelas" value="{{item.id}}">{{item.nombreea}}</option>
+      </select>
+    </div>
+    <div class="col-3">
+      <label for="facultad" class="p-0 mb-2 text-uppercase"> Filtrar por facultad</label>
+      <select class="form-select" aria-label="Default select example" id="facultad" (change)="filterFacultad($event)">
+        <option selected disabled>Selecciona Facultad</option>
+        <option *ngFor="let item of facultad" value="{{item.id}}">{{item.nombre_facultad}}</option>
+      </select>
+    </div>
+  </div>
+  <section class="container p-4 d-flex justify-content-evenly flex-wrap">
+
+
+
+    
+    <!-- card -->
+    <div class="row g-4 w-100">
+      <div class="col-3" *ngFor="let item of proyectos">
+        <div class="shadow-sm card bg-secondary-subtle d-flex flex-column align-items-center" style="height: 100%;">
+          <figure class="figure">
+            <img src="{{item.documento}}" class="card-img-top" alt="...">
+          </figure>
+          <div class="card-body w-100 pt-2">
+            <h5 class="card-title text-center h-100 d-flex align-items-center justify-content-center">
+              {{item.nombreproyecto}}</h5>
+              <h5 class="card-title text-center h-100 d-flex align-items-center justify-content-center">
+                {{item.objetivo}}</h5>
+            <div>
+              <a class="btn btn-primary text-uppercase d-flex justify-content-between"><span class="d-inline-block"
+                  data-bs-toggle="modal" data-bs-target="#view" (click)="viewDetalle(item)">Ver detalles</span> <i
+                  class="fa-regular fa-eye icon-card"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="view" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #close></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <form>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre proyecto</label>
+                  <input type="text" class="form-control" disabled id="nombre" placeholder="name@example.com"
+                    [(ngModel)]="proyecto.nombreproyecto" name="nombreproyecto">
+                </div>
+                <div class="mb-3">
+                  <label for="semestre" class="form-label">Semestre</label>
+                  <input type="text" class="form-control" disabled id="semestre" placeholder="name@example.com"
+                    [(ngModel)]="proyecto.semestre.nombresemeste" name="semestre">
+                </div>
+                <div class="mb-3">
+                  <label for="Localidad" class="form-label">Localidad</label>
+                  <input type="text" class="form-control" disabled id="Localidad" placeholder="name@example.com"
+                    [(ngModel)]="proyecto.localidad" name="localidad">
+                </div>
+                <div class="mb-3">
+                  <label for="Beneficiados" class="form-label">Beneficiados</label>
+                  <input type="number" class="form-control" disabled id="Beneficiados" placeholder="name@example.com"
+                    [(ngModel)]="proyecto.numero_bene" name="numero_bene">
+                </div>
+                <div class="mb-3">
+                  <label for="Fecha" class="form-label">Fecha Inicio</label>
+                  <input type="date" class="form-control" disabled id="Fecha" placeholder="name@example.com"
+                    [(ngModel)]="proyecto.fecha_inicio" name="inicio">
+                </div>
+                <div class="mb-3">
+                  <label for="Fin" class="form-label">Fecha Fin</label>
+                  <input type="date" class="form-control" disabled id="Fin" placeholder="name@example.com"
+                    [(ngModel)]="proyecto.fecha_fin" name="fin">
+                </div>
+              </form>
+            </div>
+            <div class="col-3 d-flex flex-column align-items-center">
+              <figure class="figure">
+                <img [src]="proyecto.documento" class="card-img-top" alt="...">
+              </figure>
+              <div class="mt-2 w-100">
+                <div *ngFor="let jornada of jornada" class="col-md-3 w-100">
+                  <button class="btn w-100 btn-primary" (click)="selecciomar(jornada.ID_JORNADA
+                  )">
+                    <div class="card-body w-100 p-0">
+                      <p class="card-text d-block w-100">
+                        <strong>{{ jornada.NOMBRE_JORNADA}}</strong>
+                      </p>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 d-flex flex-column align-items-center" >
+              <div class="p-2 h-100 project-modal" *ngIf="jornadaById.length>0;else nodata">
+                <div class="d-flex justify-content-between" *ngFor="let item of jornadaById">
+                  <h1 class="fs-4">{{item.NOMBRE_JORNADA}}</h1>
+                  <p>{{item.FECHA}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="w-25" *ngFor="let item of jornadaById">
+                    <div class="w-100">
+                      <label for="semestre" class="p-0 mb-2 text-uppercase"> Descripcion</label>
+                      <input type="text" class="form-control" disabled value="{{item.DESCIPCION}}">
+                    </div>
+                    <div class="w-100">
+                      <label for="semestre" class="p-0 mb-2 text-uppercase"> Objetivo</label>
+                      <input type="text" class="form-control" disabled value="{{item.OBJETIVO}}">
+                    </div>
+                    <div class="w-100 h-100">
+                      <label for="semestre" class="p-0 mb-2 text-uppercase">Archivos</label>
+                      <div class="w-100 h-50 border border-black rounded">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-75 ms-3">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Codigo</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Rol</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of personas">
+                          <th scope="row">{{item.CODIGO_ALUMNO}}</th>
+                          <td>{{item.NOMBRE+ " " +item.APELLIDO}}</td>
+                          <td>{{item.NOMBRE_ROL}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <ng-template #nodata>
+                <h1>No hay datos de esta jornada</h1>
+              </ng-template>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

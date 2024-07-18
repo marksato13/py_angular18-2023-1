@@ -1,0 +1,67 @@
+
+
+
+<div class="container">
+  <div class="d-flex p-3">
+    <button class="btn btn-warning mb-2 text-white"  routerLink="/home/jornada/proyecto">Regresar</button>
+    <h2 class="ms-2">Agregar Jornada</h2>
+  </div>
+  <div class="card form-card">
+    <div class="card-body">
+      <form (submit)="agregarJornada()">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="nombreJornada">Nombre de la jornada:</label>
+              <input type="text" id="nombreJornada" [(ngModel)]="nuevoJornada.nombreJornada" name="nombreJornada" class="form-control"
+                required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" [(ngModel)]="nuevoJornada.fecha" name="fecha" class="form-control"
+                required>
+            </div>
+          </div>
+          <div class="col relative mt-0 d-flex">
+            <div class="form-group file-input-wrapper mt-3">
+              <label for="documento">Imagen:(PNG)</label>
+              <input type="file" id="documento" name="documento"
+                class="form-control" required (change)="uploadFile($event)">
+            </div>
+            <div class="file ms-2">
+                <img [src]="imagenSrc" alt="Imagen Proyecto">
+            </div>
+          </div> 
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4" >{{textButton}}</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+      <div *ngFor="let jornada of jornadas" class="col-md-3">
+        <div class="card">
+          <div class="xxx"> 
+            <div class="card-body">
+              <figure class="figure">
+                <img src="{{jornada.URL}}" class="card-img-top" alt="...">
+              </figure>
+              <p class="card-text">
+                <strong>Nombre Jornada:</strong> {{ jornada.NOMBRE_JORNADA}}<br>
+                <strong>Fecha:</strong> {{ jornada.FECHA }}<br>
+              </p>
+              <button type="button" class="btn btn-primary mb-2" (click)="update(jornada)">Actualizar</button>
+              <button class="btn btn-danger" (click)="eliminarJornada(jornada.ID_JORNADA)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

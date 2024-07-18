@@ -1,0 +1,25 @@
+  /* Common card style for both sections */
+  .card {
+    border: 8px solid #21055a;
+    margin-bottom: 20px;
+  }
+
+  /* Style for form labels */
+  label {
+    font-weight: bold;
+  }
+
+  /* Style for buttons */
+  .btn {
+    margin-top: 10px;
+  }
+
+  .xxx {
+    background-color: rgb(243, 243, 243);
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-family: "Your Preferred Font", sans-serif; /* Replace "Your Preferred Font" with the actual font you want to use */
+
+  }
+
+  

@@ -1,0 +1,84 @@
+<p>confi-pages works!</p>
+<H1>GENERA MODULOS CON LA ENTIDAD ROL OPCIONES</H1>
+
+
+
+<div class="container">
+    <h2>Agregar ROL OPCIONES</h2>
+    <div class="card form-card">
+        <div class="card-body">
+            <form (submit)="agregarRolo()">
+                <div class="row">
+                    <div class="col">
+                    </div>
+
+                    
+                    <!-- FORANEAS -->
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="rol">Tipo convenio:</label>
+                            <select id="rol" [(ngModel)]="nuevoRolo.rol" name="rol" class="form-control"
+                                required>
+                                <option value="0" disabled>Selecciona un convenio</option>
+                                <option *ngFor="let rol of rols" [value]="rol.id">{{rol.nombre_rol}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="opcione">Tipo convenio:</label>
+                            <select id="opcione" [(ngModel)]="nuevoRolo.opciones" name="opcione" class="form-control"
+                                required>
+                                <option value="0" disabled>Selecciona un convenio</option>
+                                <option *ngFor="let opcione of Opcionez" [value]="opcione.id">{{opcione.nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Agregar Libro</button>
+            </form>
+        </div>
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <h2>List of XD</h2>
+    <div class="row">
+        <div *ngFor="let rol_opciones of rol_opciones" class="col-md-4">
+            <div class="card">
+                <div class="xxx">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong>ROL:</strong> {{ rol_opciones.rol.nombre_rol }}<br>
+                            <strong> OPCIONES:</strong> {{ rol_opciones.opciones.nombre }}<br>
+
+                        </p>
+                        <button class="btn btn-danger" (click)="eliminarConvenio(rol_opciones.id)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

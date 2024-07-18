@@ -1,0 +1,181 @@
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-color: #ffffff91;
+  
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  justify-content: space-between;
+  background-color: #151a30;
+}
+
+.profile-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 60%;
+}
+
+h2, .profile-name{
+  color: #fff;
+}
+
+.profile-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-top: 30px;
+}
+
+.profile-image {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Ajusta el margen superior para elevar el contenido */
+}
+
+.profile-image > div{
+  width: 200px;
+  height: 200px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  height: 100%;
+  width: 75%;
+  padding: 20px;
+}
+
+.button-seguridad {
+  display: block;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  margin: 10px;
+  
+  color: white;
+  border: none;
+  background-color: #151a30;
+
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-informes:hover,
+.button-convenios:hover,
+.button-proyectos:hover,
+.button-seguridad:hover,
+.button-configuracion:hover {
+  background-color: rgba(255, 255, 255, 0.569);
+  color: rgb(0, 0, 0);
+  border: 4px solid #151a30;
+
+
+}
+
+span {
+  margin-left: 10px;
+}
+
+.conte {
+  background-color: #151a3091;
+  /* Cambia este color a tu preferencia */
+  border: 4px solid #ffffff91;
+  /* Cambia este color a tu preferencia */
+  padding: 10px;
+  /* Agrega espacio interno al contenido */
+  margin-top: 20px;
+}
+
+.conte h2 {
+  font-size: 2rem;
+  color: #fff;
+  /* Cambia este color a tu preferencia */
+}
+
+@media screen and (max-width: 1250px) {
+  .profile {
+    width:30%;
+  }
+
+  .user-dashboard {
+    width: 70%;
+  }
+
+  .button-seguridad{
+    width: 200px;
+  height: 200px;
+  }
+}
+
+
+/* styles.css */
+.button-seguridad {
+  position: relative;
+}
+
+.button-s {
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Ajusta según sea necesario */
+  transform: translateX(-50%); /* Centra horizontalmente */
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.auth-button {
+  position: absolute;
+  bottom: 0;
+  background-color: #151a3091;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 84px -90px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Agregamos una transición para que el cambio de color sea suave */
+}
+
+.auth-button:hover {
+  background-color: #2e324291; /* Reemplaza "your-desired-hover-color" con el color que deseas al pasar el ratón */
+}
+  

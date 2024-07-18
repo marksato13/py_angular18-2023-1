@@ -1,0 +1,27 @@
+<!-- sidebar.component.html -->
+<aside class="aside" [ngClass]="!sidebarStatusLarge ? 'aside':'aside aside--large'">
+  <div>
+    <div class="sidebar-top">
+      <div class="sidebar-textMain">
+        <a [routerLink]="'/home/inicio'" class="sidebar-top__text">
+          <i class="fa-solid fa-house" id="icon"></i>
+        </a>
+      </div>
+    </div>
+    <!-- ** Sidebar MENU -->
+    <nav class="menu-container">
+      <ul class="nav">
+        <li *ngFor="let menu of menus" class="nav__item">
+          <a href="#" [routerLink]="menu.url" (click)="toggleSubMenu(menu)">
+            <i class="{{ menu.icon }}" aria-hidden="true"></i>
+            <span class="text nav__link">{{ menu.name }}</span>
+            <i class="fas fa-chevron-down" *ngIf="menu.submenu && menu.open"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button (click)="redirectToAuth()" class="auth-button auth-button-redirect">
+      <i class="fas fa-sign-out-alt auth-icon"></i> 
+    </button> 
+  </div>
+</aside>

@@ -1,0 +1,52 @@
+<div class="login">
+  <main class="main">
+    <form class="form" [formGroup]="formInputs" (ngSubmit)="login()" >
+            <!-- Encabezado del formulario -->
+      <div class="box-title">
+        <h1 class="form__title">Iniciar Sesion</h1>
+      </div>
+            <!-- Campo de entrada para el nombre de usuario -->
+      <div class="inputWithIcon inputIconBg">
+        <input
+          type="text"
+          placeholder="User Name"
+          class="input"
+          name="usuario"
+          formControlName="user"
+          pInputText
+        />
+        <i class="fa fa-user fa-lg fa-fw icon" aria-hidden="true"></i>
+      </div>
+      <!-- Campo de entrada para la contraseña -->
+      <div class="inputWithIcon inputIconBg">
+        <input
+          type="password"
+          placeholder="Password"
+          class="input"
+          name="password"
+          formControlName="pass"
+          pPassword
+        />
+        <i class="fa fa-lock fa-lg fa-fw icon" aria-hidden="true"></i>
+      </div>
+      <!-- Mensaje de error si las credenciales no son válidas -->
+      <div class="text-invalid" *ngIf="verifyDataSession">
+        <p>Usuario y contraseña no validas...!!!</p>
+      </div>
+            <!-- Botón de envío del formulario -->
+      <div class="box-footer">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="formInputs.invalid"
+          pButton
+        >
+          Ingresar
+        </button>
+      </div>
+      <div class="box-footer">
+        <a href="#" class="form__link">Olvidaste tu contraseña ?</a>
+      </div>
+    </form>
+  </main>
+</div>

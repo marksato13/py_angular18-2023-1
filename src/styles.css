@@ -1,0 +1,17 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  :root{
+    --color-text-sidebar: #ffffff;
+    --font-size-sm: 22px;
+    --font-size-md: 17px;
+    --margin-left-menu: 32px;
+  }
+  /* styles.css */
+
+/* styles.css */
+@import "~bootstrap/dist/css/bootstrap.css";

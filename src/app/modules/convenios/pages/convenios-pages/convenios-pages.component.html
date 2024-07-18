@@ -1,0 +1,55 @@
+
+
+<div class="container">
+    <h2>Agregar CONVENIO</h2>
+    <div class="card form-card">
+        <div class="card-body">
+            <form (submit)="agregarConvenio()">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="nombreconvenio">Nombre del Convenio:</label>
+                            <input type="text" id="nombreconvenio" [(ngModel)]="nuevoConvenio.nombreconvenio"
+                                name="nombreconvenio" class="form-control" required>
+                        </div>
+                    </div>
+
+                    
+                    <!-- FORANEAS -->
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="tipoconvenio">Tipo convenio:</label>
+                            <select id="tipoconvenio" [(ngModel)]="nuevoConvenio.tipo_Convenio" name="tipoconvenio" class="form-control"
+                                required>
+                                <option value="0" disabled>Selecciona un convenio</option>
+                                <option *ngFor="let tipoconvenio of tipoconvenios" [value]="tipoconvenio.id">{{tipoconvenio.nombretipoconvenio}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Agregar Libro</button>
+            </form>
+        </div>
+    </div>
+</div> 
+
+
+<div class="container">
+    <h2>List of CONVENIO</h2>
+    <div class="row">
+        <div *ngFor="let convenio of convenios" class="col-md-4">
+            <div class="card">
+                <div class="xxx">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ convenio.nombreconvenio }}</h5>
+                        <p class="card-text">
+                            <strong>Tipo convenio:</strong> {{ convenio.tipo_Convenio.nombretipoconvenio }}<br>
+                        </p>
+                        <button class="btn btn-danger" (click)="eliminarConvenio(convenio.id)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

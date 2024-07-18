@@ -1,0 +1,32 @@
+<body>
+  <div class="user-dashboard">
+    <div *ngFor="let item of modules">
+      <button class="button-seguridad" (click)="redirectToModule(item.NOMBRE)">
+        <i class="fa-solid fa-dragon"></i><span>{{item.NOMBRE}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="profile">
+    <div class="conte">
+      <h2>{{this.rol.toUpperCase()}}</h2>
+    </div>
+    <div class="profile-box">
+      <div class="profile-image">
+        <div>
+          <img
+            src="https://scontent.xx.fbcdn.net/v/t1.15752-9/368796964_715660400482829_5272570393019888584_n.png?_nc_cat=111&ccb=1-7&_nc_sid=510075&_nc_eui2=AeH1pT5S-qRObMdb9KBwGlYVYIlXB-w3GAJgiVcH7DcYArxwLUz67YsmNSL1dkrqM5c71baUYJHkCCkKN6XqzrNG&_nc_ohc=j7DTFLbzKfAAX9Ks88k&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQf5TU0KUw1CIryKv9jvr7xsYwQSbKs0OhAzzgZFMQpyw&oe=657DE494"
+            alt="Descripción de la imagen" />
+        </div>
+      </div>
+
+      <div class="profile-name">{{this.nameComplete.toUpperCase() }}</div>
+      
+      <div class="botonsalir">
+        <button (click)="redirectToAuth()" class="auth-button auth-button-redirect">
+          CERRAR SESION
+          <i class="fas fa-sign-out-alt auth-icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>

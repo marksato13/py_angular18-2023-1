@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>LISTA DE  PPROYECTO</h2>
+    <div class="row">
+        <div *ngFor="let proyecto of proyectos" class="col-md-4">
+            <div class="card">
+                <div class="xxx">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ proyecto.nombreproyecto }}</h5>
+                        <p class="card-text">
+                            <!-- <strong>Descripción:</strong> {{ proyecto.descripcion }}<br>
+                            <strong>Fecha_inicio:</strong> {{ proyecto.fecha_inicio }}<br>
+                            <strong>Fecha_fin:</strong> {{ proyecto.fecha_fin }}<br>
+                            <strong>Numero de beneficiarios:</strong> {{ proyecto.numero_bene }}<br>
+                            <strong>Localidad:</strong> {{ proyecto.localidad }}<br>
+                            <strong>Objetivo:</strong> {{ proyecto.objetivo }}<br>
+                            <strong>Documento:</strong> {{ proyecto.documento }}<br>
+                            <strong>Estado:</strong> {{ proyecto.estado }}<br>
+                            <strong>Convenio:</strong> {{ proyecto.convenio.nombreautor }}<br>
+                            <strong>Tipo Proyecto:</strong> {{ proyecto.tipo_Proyecto.nombreeditorial }}<br>
+                            <strong>Semestre:</strong> {{ proyecto.semestre.nombrecategoria }}<br>
+                            <strong>Escuela Profecional:</strong> {{ proyecto.escuelaProfecional.nombrecategoria }}<br> -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

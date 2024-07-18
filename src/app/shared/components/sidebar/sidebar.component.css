@@ -1,0 +1,238 @@
+/* Estilos para el elemento aside */
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px; /* Ancho por defecto para pantallas grandes */
+  padding: 0 5px;
+  background-color: #151a30;
+  z-index: 100;
+  box-shadow: 0 0 5px black;
+  overflow: hidden;
+  transition: all 0.2s ease-in;
+}
+
+
+@media (max-width: 768px) {
+  .aside {
+    width: 80px; 
+  }
+}
+/* Estilos para la barra lateral con el contenedor de Bootstrap */
+.aside .container {
+  padding: 20px;
+  background-color: #0E6E74;
+  color: #000000;
+}
+
+/* Estilos para la barra de navegación en la parte superior del sidebar */
+.sidebar-top {
+  background-color: #151a30;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para imágenes */
+/* img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+} */
+
+/* Estilos para el texto en la barra de navegación */
+.sidebar-top__text {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 19px;
+  color: #df1919;
+  margin-left: 5px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para íconos */
+i {
+  color: #ffffff;
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+/* Estilos para la imagen principal */
+.main-img {
+  min-width: 45px;
+  height: 30px;
+  text-align: center;
+}
+
+/* Estilos para el elemento sidebar-textMain */
+.sidebar-textMain {
+  margin-left: -5px;
+}
+
+/* Estilos para el icono en el sidebar-top__text */
+#icon {
+  font-size: 30px;
+  margin-right: 10px;
+  margin-left: 2px;
+}
+
+/* Estilos para el contenedor de menú */
+.menu-container {
+  padding: 6px 0;
+  border-top: 1px solid #ffffff;
+}
+
+/* Estilos para elementos de navegación en el menú */
+.nav__item {
+  overflow: hidden;
+  list-style: none;
+  margin-top: 2px;
+  padding: 10px 25px;
+  background-color: #151a30;
+}
+
+.nav__link {
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: 31px;
+}
+
+/* Estilos para elementos de navegación al pasar el mouse */
+.nav__item:hover,
+.nav__item--botom:hover {
+  background-color: #ffffff;
+  border-radius: 7px;
+}
+
+/* Cambia el color del texto y del ícono a negro al pasar el cursor sobre .nav__item y .nav__item--botom */
+.nav__item:hover .nav__link,
+.nav__item--botom:hover .nav__link,
+.nav__item:hover i,
+.nav__item--botom:hover i {
+  color: #000000;
+}
+
+/* Estilos para el elemento de navegación en la parte inferior */
+.nav__item--botom {
+  list-style: none;
+  margin: 3px;
+  padding: 10px 25px;
+  height: 46px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 245px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+/* Estilos para el modo de barra lateral grande */
+.aside--large {
+  width: 80px;
+}
+
+
+/************************************************************+*/
+/* Estilos para el contenedor del submenú */
+.subnav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f0f0f0; /* Fondo claro */
+  border: 1px solid #ccc; /* Agregamos un borde de 1px sólido en color gris */
+  border-radius: 6px; /* Añadimos bordes redondeados */
+}
+
+/* Estilos para cada elemento del submenú */
+.subnav li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para los enlaces del submenú */
+.subnav a {
+  display: block;
+  color: #00000098; /* Texto oscuro */
+  text-decoration: none;
+  padding: 10px 20px; /* Ajusta el espaciado según tus necesidades */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos al pasar el mouse sobre los enlaces del submenú */
+.subnav a:hover {
+  background-color: #151a30; /* Fondo oscuro */
+  color: #fff; /* Texto claro */
+}
+
+/* Estilos para los íconos del submenú */
+.subnav i {
+  margin-right: 10px;
+}
+
+/* Estilos para el texto del submenú */
+.subnav__link {
+  font-size: 14px;
+}
+/************************************************************+*/
+
+
+/* Estilos para el ícono de submenú abierto */
+.nav__item.open .fa-chevron-right {
+  transform: rotate(90deg);
+}
+
+/* Mueve el ícono 5px hacia la derecha */
+.fas.fa-chevron-down {
+  margin-left: 9px;
+}
+
+/* Estilos para el botón de redirección a la página de autenticación */
+.auth-button-redirect {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #263238;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid #ffffff;
+}
+
+/* Cambia el color del ícono a negro al pasar el cursor sobre el botón */
+.auth-button-redirect:hover .auth-icon {
+  color: #000;
+}
+
+/* Estilos para el ícono de Font Awesome en el botón */
+.auth-button-redirect .auth-icon {
+  margin-right: 8px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+/* Estilos para el botón al pasar el mouse */
+.auth-button-redirect:hover {
+  background-color: #ffffff;
+}
+.nav li {
+  font-size: 16px; /* Establece el tamaño de fuente deseado */
+}

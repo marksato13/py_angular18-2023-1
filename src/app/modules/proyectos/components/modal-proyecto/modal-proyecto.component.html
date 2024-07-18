@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="card form-card border-0">
+    <div class="card-body">
+      <form (submit)="agregarProyecto()">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="nombreproyecto">Nombre del Proyecto:</label>
+              <input type="text" id="nombreproyecto" [(ngModel)]="nuevoProyecto.nombreproyecto" name="nombreproyecto"
+                class="form-control" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="descripcion">Descripcion:</label>
+              <textarea id="descripcion" [(ngModel)]="nuevoProyecto.descripcion" name="descripcion" class="form-control"
+                required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fecha_inicio">Fecha_inicio:</label>
+              <input type="date" id="fecha_inicio" [(ngModel)]="nuevoProyecto.fecha_inicio" name="fecha_inicio"
+                class="form-control" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="fecha_fin">Fecha_fin:</label>
+              <input type="date" id="fecha_fin" [(ngModel)]="nuevoProyecto.fecha_fin" name="fecha_fin"
+                class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="numero_bene">Numero de Beneficiarios:</label>
+              <input type="number" id="numero_bene" [(ngModel)]="nuevoProyecto.numero_bene" name="numero_bene"
+                class="form-control" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="localidad">Localidad:</label>
+              <input type="text" id="localidad" [(ngModel)]="nuevoProyecto.localidad" name="localidad"
+                class="form-control" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="objetivo">Objetivo:</label>
+              <input type="text" id="objetivo" [(ngModel)]="nuevoProyecto.objetivo" name="objetivo"
+                class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="convenio">Convenio:</label>
+              <select class="form-select" aria-label="Default select example" id="convenio"
+                [(ngModel)]="nuevoProyecto.convenio" name="convenio" class="form-control" required>
+                <option selected value="0" disabled>Selecciona una Opción</option>
+                <option *ngFor="let convenio of convenios" [value]="convenio.id">
+                  {{convenio.nombreconvenio}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="tipo_Proyecto">Tipo Proyecto:</label>
+              <select class="form-select" aria-label="Default select example" id="tipo_Proyecto"
+                [(ngModel)]="nuevoProyecto.tipo_Proyecto" name="tipo_Proyecto" class="form-control" required>
+                <option selected value="0" disabled>Selecciona una Opción</option>
+                <option *ngFor="let tipo_Proyecto of tipoproyectos" [value]="tipo_Proyecto.id">
+                  {{tipo_Proyecto.tipoProyecto }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="semestre">Semestre:</label>
+              <select class="form-select" aria-label="Default select example" id="semestre"
+                [(ngModel)]="nuevoProyecto.semestre" name="semestre" class="form-control" required>
+                <option selected value="0" disabled>Selecciona una Opción</option>
+                <option *ngFor="let semestre of semestres" [value]="semestre.id">{{semestre.nombresemeste }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="escuelaProfecional">Escuela:</label>
+              <select class="form-select" aria-label="Default select example" id="escuelaProfecional"
+                [(ngModel)]="nuevoProyecto.escuelaProfecional" name="escuelaProfecional" class="form-control" required>
+                <option  selected value="0" disabled>Selecciona una Opción</option>
+                <option *ngFor="let escuelaProfecional of escuelas" [value]="escuelaProfecional.id">
+                  {{escuelaProfecional.nombreea}}</option>
+              </select>
+            </div>
+          </div>
+          <!-- <ng-template #escuela>
+            <div class="col">
+              <div class="form-group">
+                <label for="escuelaProfecional">Escuela:</label>
+                <select class="form-select" aria-label="Default select example" id="escuelaProfecional"
+                  [(ngModel)]="nuevoProyecto.escuelaProfecional" name="escuelaProfecional" class="form-control" required>
+                  <option *ngIf="statusUpdate" selected value="0" disabled>Selecciona una Opción</option>
+                  <option [selected]="statusUpdate && escuelaProfecional.id == nuevoProyecto.escuelaProfecional " *ngFor="let escuelaProfecional of escuelas" [value]="escuelaProfecional.id">
+                    {{escuelaProfecional.nombreea}}</option>
+                </select>
+              </div>
+            </div>
+          </ng-template> -->
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group file-input-wrapper mt-3">
+              <label for="documento">Imagen:(PNG)</label>
+              <input type="file" id="documento" [(ngModel)]="nuevoProyecto.documento" name="documento"
+                class="form-control" required (change)="uploadFile($event)">
+            </div>
+            <div class="file">
+                <img [src]="imagenSrc" alt="Imagen Proyecto">
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <button type="button" class="btn btn-danger" (click)="cancelar()" >Cancelar</button>
+
+            <button *ngIf="!statusUpdate;else update" type="submit" class="btn btn-primary ms-2">Agregar</button>
+            <ng-template #update>
+              <button type="submit" class="btn btn-primary ms-2">Editar</button>
+            </ng-template>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

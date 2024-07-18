@@ -1,0 +1,42 @@
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-input-wrapper label {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.file-input-wrapper input {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Estilo adicional para resaltar al pasar el ratón */
+.file-input-wrapper label:hover {
+    background-color: #2980b9;
+}
+
+.file{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 4px dashed #3498db;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

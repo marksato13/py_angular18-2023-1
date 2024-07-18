@@ -1,0 +1,65 @@
+
+<section class="container p-4">
+
+  
+<div class="row w-25">
+  <label for="semestre" class="p-0 mb-2 text-uppercase"> Filtrar por Semestre</label>
+  <select class="form-select" aria-label="Default select example" id="semestre" (change)="filterSemester($event)" >
+    <option selected disabled>Selecciona Semestre</option>
+    <option *ngFor="let item of semestres" value="{{item.id}}">{{item.nombresemeste}}</option>
+  </select>
+</div>
+ 
+  <section class="container p-4 d-flex justify-content-evenly flex-wrap">
+    <div class="row g-4 w-100">
+      <div class="col-3" *ngFor="let item of proyectos">
+        <div class="shadow-sm card bg-secondary-subtle d-flex flex-column align-items-center py-2"
+          style="height: 100%;">
+          <figure class="figure">
+            <img src="{{item.documento}}" class="card-img-top" alt="...">
+          </figure>
+          <h5 class="card-title text-center d-flex align-items-center justify-content-center">{{item.nombreproyecto}}
+          </h5>
+          <ng-container *ngFor="let jornada of jornada">
+            <div *ngIf="jornada.proyecto.id == item.id" class="px-3 w-100 mt-2">
+              <a class="btn btn-primary text-uppercase d-flex justify-content-center m-0 w-100"
+                (click)="viewEquipos(jornada.id)">
+                <span class="d-inline-block">{{ jornada.nombreJornada }}</span>
+                <i class="fa-regular fa-eye icon-card"></i>
+              </a>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

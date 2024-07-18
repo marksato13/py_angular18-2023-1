@@ -1,0 +1,20 @@
+<header [ngClass]="!status ? 'header' : 'header header--large' ">
+  <div class="icon">
+    <i class="fa fa-bars icon--size" aria-hidden="true" (click)="btnAction()"> </i>
+    <i class="fa fa-expand icon--size" aria-hidden="true" (click)="maximizeAction()"></i>
+  </div>
+  <img class="logo" src="https://s3.amazonaws.com/files.patmos.upeu.edu.pe/statics/app-assets/images/logo-upeu-blanco.png" alt="">
+  <div class="perfil">
+    <div class="left">
+      <figure class="perfil__photo">
+      </figure>
+      <div class="bolita"></div>
+    </div>
+    <p class="perfil__name" [routerLink]="'/home/perfil'">{{this.nameComplete.toUpperCase() }}</p>
+
+    
+    <div class="profile-name"></div> 
+      
+
+  </div>
+</header>

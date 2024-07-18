@@ -1,0 +1,30 @@
+/* Estilo inicial para pantallas más grandes */
+.container-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.menu {
+  overflow: auto;
+  transition: all 0.3s ease-in-out;
+  margin-top: 57px;
+  margin-left: 255px;
+  height: calc(100vh - 57px);
+  /* border: 1px solid black; */
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.menu--large {
+  margin-left:80px;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    margin-left: 80px;
+  }
+}

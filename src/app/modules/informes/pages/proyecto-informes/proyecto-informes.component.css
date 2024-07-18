@@ -1,0 +1,17 @@
+
+
+.btn{
+    background-color: #151a30;
+    color: rgb(255, 255, 255);
+}
+
+.card {
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .col-sm-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }

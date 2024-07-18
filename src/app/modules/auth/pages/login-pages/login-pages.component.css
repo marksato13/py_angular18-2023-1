@@ -1,0 +1,244 @@
+/* TODO: Styles de login header */
+
+img {
+  max-width: 100%;
+}
+
+.login {
+  background-image: url('https://blog.upeu.edu.pe/wp-content/uploads/2022/03/2-1296x700.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.containerOfHeader {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.containerImgHeader {
+  width: 80px;
+  padding: 10px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  background-color: #d0d0d0;
+}
+
+.header__text {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-left: 5px;
+  width: 90px;
+  color: white;
+}
+
+.header__text--black {
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* TODO: LOGIN*/
+
+.main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.form {
+  width: 330px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(225, 223, 223, 0.826); /* Transparent background */
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0 0 8px 0 rgba(7, 30, 134, 0.79);
+}
+
+.form__title {
+  font-family: "Black Ops One", cursive;
+  margin: 40px 0;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: rgb(225, 223, 223); /* Transparent background */
+
+  box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.79);
+
+}
+
+/* TODO: INPUTS*/
+.input {
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.input:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon .input {
+  padding-left: 45px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon:nth-child(3) {
+  margin-top: 15px;
+}
+
+.inputWithIcon i {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 9px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.inputWithIcon .input:focus + i {
+  color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg i {
+  background-color: #aaa;
+  color: #fff;
+  padding: 9px 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.inputWithIcon.inputIconBg .input:focus + i {
+  color: #fff;
+  background-color: dodgerBlue;
+}
+
+.form__link {
+  color: #005bc4;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: end;
+}
+
+.btn {
+  width: 150px;
+  padding: 7px 0;
+  background-color: #005bc4;
+  border: none;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  transition: all .5s ease;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2 ease;
+  -ms-transition: all .2 ease;
+  -o-transition: all .2 ease;
+}
+
+.btn:enabled:hover{
+  cursor: pointer;
+  padding: 10px 5px;
+}
+
+.box-footer {
+  margin-top: 40px;
+}
+
+.box-footer:last-child {
+  margin-top: 20px;
+}
+.icon{
+  height: 65%;
+  line-height: 65%;
+}
+
+.text-invalid{
+  margin-top: 20px;
+  color: red;
+  font-weight: bolder;
+}
+
+@media screen and(min-width: 1000px) {
+  .form {
+    width: 400px;
+    height: 450px;
+  }
+
+  .form__title {
+    font-size: 1.5rem;
+  }
+
+  /* TODO: INPUTS*/
+  .input {
+    width: 250px;
+    padding: 10px;
+  }
+
+  .icon {
+    font-size: 35px;
+    height: 65%;
+  }
+
+  .inputWithIcon {
+    margin-top: 18px;
+  }
+
+  .form__link {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    width: 180px;
+    padding: 10px 0;
+    background-color: #225a79;
+  }
+
+  .box-footer {
+    margin-top: 50px;
+  }
+
+.box-footer:last-child{
+  margin-top: 40px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<form class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="mb-3">
+        <label for="equipo" class="form-label" >Nombre Equipo</label>
+        <input type="text" class="form-control" id="equipo" placeholder="papita" name="equipo"[(ngModel)]="dataEquipo.nombre_equipo">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="mb-3">
+        <label for="horas" class="form-label" >Horas por Jornada</label>
+        <input type="number" class="form-control" id="horas" placeholder="7" name="horas" [(ngModel)]="dataEquipo.hora">
+      </div>
+    </div>
+    <div class="col-12 position-relative mb-5">
+        <div class="form-group file-input-wrapper mt-3">
+          <label for="documento">PDF:</label>
+          <input type="file" id="documento"  name="documento" [(ngModel)]="dataEquipo.archivo_informe"
+            class="form-control" required (change)="uploadFile($event)">
+        </div>
+      </div>
+    <div class="col-12 table-selection">
+      <table class="table h-100">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataAlumno; let i=index">
+            <th  scope="row">{{i+1}}</th>
+            <td >{{item.codigo_alumno}}</td>
+            <td>{{item.persona.apellido + " "+item.persona.nombre }}</td>
+            <td ><input class="form-check-input" type="checkbox"  (change)="checkout(item.persona.id)"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+        <div class="mb-3">
+         <button type="button" class="btn btn-danger">Cancelar</button>
+         <button type="button" class="btn btn-primary ms-2" (click)="agregarEquipo()">Agregar Equipo</button>
+        </div>
+      </div>
+  </div>
+
+</form>
